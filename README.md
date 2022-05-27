@@ -2,6 +2,12 @@
 
 This project runs tests for perfomance of finding if big number is in range in various cases.
 
+Python version used
+
+```text
+Python 3.9.9 (tags/v3.9.9:ccb0e6a, Nov 15 2021, 18:08:50) [MSC v.1929 64 bit (AMD64)] on win32
+```
+
 Results of testing are showing that Python handles this easily:
 
 ```text
