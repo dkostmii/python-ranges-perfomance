@@ -1,8 +1,12 @@
 from math import floor
 from random import randint
 
+# Constants
+
 bigNumber = 1000000000000000
 
+
+# Define test cases
 
 def original() -> bool:
   return bigNumber in range(bigNumber + 1)
@@ -35,6 +39,8 @@ def randomEveryRandomOutsideOfRangePos() -> bool:
 def randomEveryRandomOutsideOfRangeNeg() -> bool:
   return randint(-2 * bigNumber, -1) in range(0, bigNumber + 1, randint(1, bigNumber))
 
+
+# Test information
 
 testDescription = {
   "name": "Range perfomance test",

@@ -7,12 +7,22 @@ def indexExists(l: list[Any], id: int) -> bool:
   return 0 <= id < len(l)
 
 
-# Catch argument from command-line execution
+# Catch argument (pass "ns" for -ns) from command-line execution
+#
+# Catches both switch (just -ns)
+# which returns True
+#
+# and values (-ns somesillystuff)
+# which returns "somesillystuff"
+#
+# if argument is not provided
+# returns False
 def catchArg(arg: str) -> Any:
   if len(argv) < 2:
     return False
   
   try:
+    arg = "-" + arg
     normArgv = list(map(lambda arg: arg.lower(), argv))
     argId = normArgv.index(arg)
     if indexExists(normArgv, argId + 1):
@@ -22,7 +32,10 @@ def catchArg(arg: str) -> Any:
   except:
     return False
 
-
+# Formats time as 
+# for hh, mm, ss provided - 12:34:56
+# for hh, mm, ss, ms provided - 12:34:56.789
+# for ns provided - 12.34 ns (ignores hh, mm, ss)
 def timeFmt(
     hh: Union[int, None] = None,
     mm: Union[int, None] = None,
@@ -51,6 +64,8 @@ def pluck(dict: dict[str, Any], *args: str):
   return (dict[arg] for arg in args)
 
 
+# Functions below are calculating time components
+# And returning apropriate time string
 def secondsToTime(seconds: Union[int, float] = 0) -> str:
   seconds = abs(seconds)
 
