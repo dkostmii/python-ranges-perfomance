@@ -5,6 +5,7 @@ from defs import testcases, testDescription
 ns = catchArg("-ns")
 fmt = timeFmt(ns = 12.34) if ns else timeFmt(12, 34, 56, 789)
 
+
 def main():
   (name, description, definitions) = pluck(testDescription, "name", "description", "definitions")
   print(name)
